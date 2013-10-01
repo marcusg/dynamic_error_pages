@@ -1,3 +1,5 @@
+require "rails"
+
 module DynamicErrorPages
   class Engine < ::Rails::Engine
 
