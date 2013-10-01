@@ -6,7 +6,6 @@ rails_version = ENV['RAILS_VERSION'] || "3.2"
 require File.expand_path("../dummy#{rails_version}/config/environment.rb",  __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
-require 'capybara/rspec'
 require 'dynamic_error_pages'
 require 'pry'
 

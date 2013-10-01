@@ -17,9 +17,7 @@ rdoc
 spec/reports
 test/tmp
 test/version_tmp
-tmp/spec/dummy/db/test.sqlite3
-/spec/dummy/log/test.log
-/spec/dummy/db/test.sqlite3
+
 /spec/dummy3.2/log/test.log
 /spec/dummy4.0/log/test.log
 /spec/dummy3.2/db/production.sqlite3
@@ -28,3 +26,6 @@ tmp/spec/dummy/db/test.sqlite3
 /spec/dummy4.0/db/production.sqlite3
 /spec/dummy4.0/db/test.sqlite3
 /spec/dummy4.0/log/production.log
+
+/spec/dummy3.2/tmp/*
+/spec/dummy4.0/tmp/*
