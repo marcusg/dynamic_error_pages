@@ -1,5 +1,5 @@
 # Configure Rails Environment
-ENV["RAILS_ENV"] = "production"
+ENV["RAILS_ENV"] = "test"
 
 rails_version = ENV['RAILS_VERSION'] || "3.2"
 
