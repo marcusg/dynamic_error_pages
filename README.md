@@ -30,7 +30,7 @@ Or install it yourself as:
 Just place your custom error templates inside the ``` app/views/dynamic_error_pages/errors ``` folder. The files need to
 be named like the returned status code. The ``` 404.html.erb ``` would be used for status code 404 like ```ActiveRecord::RecordNotFound``` would raise for example.
 
-If an error is raised and no template for the status code can be found, the engine will fallback to the ```404```-template.
+If an error is raised and no template for the status code can be found, the engine will fallback to the ```404.html.erb```-template.
 
 That's all!
 
