@@ -1,6 +1,7 @@
 class DynamicErrorPages::ErrorsController < ApplicationController
 
   def show
+    request.format = :html
     begin
       render "#{status_code}", :status => status_code, :formats => [:html]
     rescue ActionView::MissingTemplate => e
@@ -17,10 +18,6 @@ class DynamicErrorPages::ErrorsController < ApplicationController
 
   def status_code
     request.path[1..-1]
-  end
-
-  def exception
-    env['action_dispatch.exception']
   end
 
 end
