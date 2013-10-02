@@ -27,12 +27,38 @@ Or install it yourself as:
 
 ## Usage
 
+### Include your templates
+
 Just place your custom error templates inside the ``` app/views/dynamic_error_pages/errors ``` folder. The files need to
 be named like the returned status code. The ``` 404.html.erb ``` would be used for status code 404 like ```ActiveRecord::RecordNotFound``` would raise for example.
 
 If an error is raised and no template for the status code can be found, the engine will fallback to the ```404.html.erb```-template.
 
-That's all!
+### Custom error handling
+
+You may want to handle the incoming errors in a different way the gem handles this. 
+To do so, create a file named ``` patched_errors_controller.rb ``` in ``` app/controllers/dynamic_error_pages ```.
+The names are very important here! The gem will only look for ``` DynamicErrorPages::PatchedErrorsController ``` controller.
+
+
+    class DynamicErrorPages::PatchedErrorsController < DynamicErrorPages::ErrorsController
+
+      def show
+    
+        if path.starts_with? "/admin/" # is admin path
+          redirect_to admin_root_path, :alert => I18n.t("errors.messages.page_not_found") and return
+        else
+          super
+        end
+
+      end
+    end
+
+
+## Limitations
+
+At the moment, the gem will allways force :html format in the response. 
+In future versions, this behaviour will be extended.  
 
 ## TODO
 
