@@ -11,6 +11,13 @@ Engine that helps you to generate dynamic error pages with Rails
 
 ```rails >= 3.2```
 
+## What and why
+
+Normally Rails places some static error pages for special error codes (404, 422 and 500) inside the *public* directory. 
+These files are rendered if an error occures. But these templates are rendered without a layout. 
+This causes a bad integration into your custom layout. 
+The ``` dynamic_error_pages ``` gem let you create your own templates which are rendered inside your application layout. 
+
 ## Installation
 
 Add this line to your application's Gemfile:
