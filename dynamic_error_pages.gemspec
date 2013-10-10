@@ -27,5 +27,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "appraisal", "~> 0.5.2"
   spec.add_development_dependency "capybara"
 
-  spec.add_dependency "rails", ">= 3.2.0", "<= 4.1"
+  spec.add_dependency "rails", ">= 3.2.0"
 end
