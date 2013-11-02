@@ -6,4 +6,8 @@ class TestsController < ApplicationController
   def show
     raise ActionController::InvalidAuthenticityToken
   end
+
+  def custom_exception
+    raise CustomException.new
+  end
 end

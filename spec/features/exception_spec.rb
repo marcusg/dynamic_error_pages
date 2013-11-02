@@ -17,4 +17,9 @@ feature "dynamic exception pages should be delivered with html format" do
     page.should have_content "my 404" # 404 because 422 is not present
   end
 
+  scenario "custom exception" do
+    visit custom_exception_url
+    page.should have_content "my 500"
+  end
+
 end
