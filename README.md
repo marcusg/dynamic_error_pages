@@ -28,10 +28,6 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install dynamic_error_pages
-
 ## Usage
 
 ### Include your templates
@@ -41,26 +37,44 @@ be named like the returned status code. The ``` 404.html.erb ``` would be used f
 
 If an error is raised and no template for the status code can be found, the engine will fallback to the ```404.html.erb```-template.
 
+### Include the routing
+
+Activate the routes for dynamic error handling in your ```routes.rb```. 
+
+```
+YourApp::Application.routes.draw do
+  # ....
+  
+  dynamic_error_pages
+
+end
+```
+
 ### Custom error handling
 
-You may want to handle the incoming errors in a different way the gem handles this. 
-To do so, create a file named ``` patched_errors_controller.rb ``` in ``` app/controllers/dynamic_error_pages ```.
-The names are very important here! The gem will only look for ``` DynamicErrorPages::PatchedErrorsController ``` controller.
+You may want to handle the incoming errors in a different way the gem handles this. Just create a subclass of 
+For example, create a file named ``` errors_controller.rb ``` in ``` app/controllers ```.
 
 
-    class DynamicErrorPages::PatchedErrorsController < DynamicErrorPages::ErrorsController
+    class ErrorsController < DynamicErrorPages::ErrorsController
+      skip_before_filter :my_fancy_stuff # change your filters...
 
       def show
-    
-        if path.starts_with? "/admin/" # is admin path
-          redirect_to admin_root_path, :alert => I18n.t("errors.messages.page_not_found") and return
-        else
-          super
-        end
-
+        # do whatever you want...
+        super
       end
     end
 
+And adjust the routes file to support your custom ```errors_controller```
+
+```
+DeviseDynamicErrorPages::Application.routes.draw do
+  # ....
+  
+  dynamic_error_pages :controller => "errors"
+
+end
+```
 
 ## Limitations
 
