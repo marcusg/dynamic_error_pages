@@ -1,7 +1,7 @@
 PATH
   remote: /home/marcus/Work/repos/github/dynamic_error_pages
   specs:
-    dynamic_error_pages (0.0.3)
+    dynamic_error_pages (0.1.0)
       rails (>= 3.2.0)
 
 GEM
