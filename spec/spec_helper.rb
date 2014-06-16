@@ -1,7 +1,7 @@
 # Configure Rails Environment
 ENV["RAILS_ENV"] = "test"
 
-rails_version = ENV['RAILS_VERSION'] || "3.2"
+rails_version = ENV["BUNDLE_GEMFILE"].split("/").last.gsub(".gemfile", "")
 
 require File.expand_path("../dummy#{rails_version}/config/environment.rb",  __FILE__)
 require 'rspec/rails'
