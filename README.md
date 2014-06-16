@@ -86,6 +86,11 @@ In future versions, this behaviour will be extended.
 1. Support more formats
 2. Write more tests
 
+## Run tests
+
+1. ```bundle install```
+2. ```rake appraisal```
+
 ## Contributing
 
 1. Fork it
